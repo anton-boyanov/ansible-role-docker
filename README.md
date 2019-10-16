@@ -25,7 +25,7 @@ An Ansible role to install Docker (CE or EE) on various Linux distributions.
 ## Installation
 
 ```
-ansible-galaxy install erjac77.docker
+ansible-galaxy install ansible-role-docker
 ```
 
 ## Role Variables
