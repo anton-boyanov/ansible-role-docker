@@ -77,11 +77,11 @@ None.
 
 ```yaml
 - name: Install Docker
-  hosts: localhost
+  hosts: aws
   become: yes
 
   roles:
-    - erjac77.docker
+    - ansible-role-docker
 ```
 
 ## License
