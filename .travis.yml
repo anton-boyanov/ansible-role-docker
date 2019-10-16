@@ -22,14 +22,8 @@ install:
 
 before_script:
   # Use actual Ansible Galaxy role name for the project directory
-  - cd ../
-  - mv ansible-role-$ROLE_NAME erjac77.$ROLE_NAME
-  - cd erjac77.$ROLE_NAME
+  #- cd ../
+  #- mv ansible-role-$ROLE_NAME erjac77.$ROLE_NAME
+  #- cd erjac77.$ROLE_NAME
 
-script:
-  # Run tests
-  - molecule test
 
-notifications:
-  webhooks:
-    - https://galaxy.ansible.com/api/v1/notifications/
