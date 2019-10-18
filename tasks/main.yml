@@ -10,8 +10,12 @@
 - name: Check prerequisites
   include_tasks: check_prerequisites.yml
 
+- name: Amazon
+   stat: {{ ansible_os_family }}
+   register: st
+
 - name: Install Docker Engine
-  include_tasks: install_docker_amazon.yml if {{ ansible_os_family }} == "amazon" else install_docker_engine.yml
+  include_tasks: install_docker_amazon.yml if st == "amazon" else install_docker_engine.yml
   
 # Post installation steps for Linux
 
