@@ -26,6 +26,6 @@
 - name: Ensure handlers are notified to avoid firewall conflicts
   meta: flush_handlers
 
-- name: Install Docker SDK for Python
-  include_tasks: install_sdk_for_python.yml
-  when: docker_pip_packages is defined
+  #- name: Install Docker SDK for Python
+  #  include_tasks: install_sdk_for_python.yml
+  #  when: docker_pip_packages is defined

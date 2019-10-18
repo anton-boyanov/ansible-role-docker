@@ -1,12 +1,10 @@
 ---
 
-- name: Install required packages
-  yum:
-    name: "{{ docker_dependencies }}"
-    state: present
+- name: Install docker
+  command: yum install docker -y
 
-- name: Add Docker yum repository
-  get_url:
-    url: "{{ docker_repository }}"
-    dest: /etc/yum.repos.d/docker-ce.repo
-    mode: 0644
+  #  get_url:
+  #    url: "{{ docker_repository }}"
+  #    dest: /etc/yum.repos.d/docker-ce.repo
+  #    mode: 0644
+

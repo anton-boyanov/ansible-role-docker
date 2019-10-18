@@ -13,10 +13,10 @@ docker_old_packages:
   - docker-engine
 
 docker_dependencies:
-  - yum-utils
+  - dnf-utils.noarch
   - device-mapper-persistent-data
   - lvm2
 
-docker_gpg_key: "https://download.docker.com/linux/{{ ansible_distribution | lower }}/gpg"
-docker_repository: "https://download.docker.com/linux/{{ ansible_distribution | lower }}/\
+docker_gpg_key: "https://download.docker.com/linux/centos/gpg"
+docker_repository: "https://download.docker.com/linux/centos/\
   docker-{{ docker_edition }}.repo"

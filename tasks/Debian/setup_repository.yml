@@ -15,3 +15,8 @@
   apt_repository:
     repo: "{{ docker_repository }}"
     state: present
+
+- name: Install Docker {{ docker_edition | upper }}
+  package:
+    name: "{{ docker_packages }}"
+    state: "{{ docker_state }}"
