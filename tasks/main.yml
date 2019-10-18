@@ -11,7 +11,13 @@
   include_tasks: check_prerequisites.yml
 
 - name: Install Docker Engine
-  include_tasks: install_docker_engine.yml
+  include_tasks: install_docker_amazon.yml if {{ ansible_os_family }} == "amazon" else install_docker_engine.yml
+  
+  - name: Check certs exist
+   stat: path=/etc/letsencrypt/live/{{ rootDomain }}/fullchain.pem
+   register: st
+
+- include: "{{ './_common/check-certs-renewable.yaml' if st.stat.exists else './_common/create-certs.yaml' }}"
 
 # Post installation steps for Linux
 
