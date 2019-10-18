@@ -1,0 +1,8 @@
+---
+
+- name: Yum Update
+  command: yum update -y
+  
+- name: Install Docker on Amazon Linux using "amazon-linux-extras"
+  command: amazon-linux-extras install docker -y
+  
