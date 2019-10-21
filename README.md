@@ -1,10 +1,5 @@
 # Ansible Role: Docker
 
-[![Build Status](https://travis-ci.com/erjac77/ansible-role-docker.svg?branch=master)](https://travis-ci.com/erjac77/ansible-role-docker)
-[![Ansible Quality Score](https://img.shields.io/ansible/quality/14468)](https://galaxy.ansible.com/erjac77/docker)
-[![Ansible Role](https://img.shields.io/ansible/role/14468)](https://galaxy.ansible.com/erjac77/docker)
-[![License](https://img.shields.io/badge/License-Apache%202.0-yellowgreen.svg)](https://opensource.org/licenses/Apache-2.0)
-
 An Ansible role to install Docker (CE or EE) on various Linux distributions.
 
 ## Requirements
@@ -22,11 +17,6 @@ An Ansible role to install Docker (CE or EE) on various Linux distributions.
 |              | Bionic 18.04 (LTS) |
 |              | Xenial 16.04 (LTS) |
 
-## Installation
-
-```
-ansible-galaxy install erjac77.docker
-```
 
 ## Role Variables
 
@@ -43,13 +33,6 @@ docker_packages:
   - containerd.io
 # State can be one of: 'present' or 'latest'
 docker_state: present
-
-# Docker SDK for Python
-docker_pip_dependencies:
-  - python-setuptools
-  - python-pip
-docker_pip_packages:
-  - docker
 
 # List of users to be added to the docker group
 docker_users:
@@ -81,13 +64,5 @@ None.
   become: yes
 
   roles:
-    - erjac77.docker
+    - ansible-role-docker
 ```
-
-## License
-
-Apache 2.0
-
-## Author Information
-
-Eric Jacob ([@erjac77](https://github.com/erjac77))
