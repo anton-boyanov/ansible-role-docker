@@ -1,0 +1,11 @@
+---
+
+- name: Install pip dependencies
+  package:
+    name: "{{ docker_pip_dependencies }}"
+    state: present
+
+- name: Install pip packages
+  pip:
+    name: "{{ docker_pip_packages }}"
+    state: present
