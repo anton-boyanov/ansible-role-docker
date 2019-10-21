@@ -1,7 +1,7 @@
 ---
 
 - name: Install required packages
-  yum:
+  package:
     name: "{{ docker_dependencies }}"
     state: present
 

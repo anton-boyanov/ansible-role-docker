@@ -3,6 +3,11 @@
 - name: Yum Update
   command: yum update -y
   
-- name: Install Docker on Amazon Linux using "amazon-linux-extras"
+- name: Install Docker on Amazon Linux2 using "amazon-linux-extras"
   command: amazon-linux-extras install docker -y
-  
+  when: "{{ 'Karoo' in ansible_distribution_version}}"
+
+- name: Install Docker on Amazon Linux using "yum"
+  command: yum install docker -y
+  when: "{{ '2018' in ansible_distribution_version}}"
+ 

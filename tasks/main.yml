@@ -7,16 +7,15 @@
 - name: Gather {{ ansible_os_family }} OS family specific variables
   include_vars: "{{ ansible_os_family }}.yml"
 
-- name: Check prerequisites
-  include_tasks: check_prerequisites.yml
+- name: Install Docker Engine
+  include_tasks: install_docker_amazon.yml
+  when: ansible_distribution | lower == 'amazon'
 
-- name: Amazon
-  stat: "{{ ansible_os_family }}"
-  register: st
 
 - name: Install Docker Engine
-  include_tasks: "{{ 'install_docker_amazon.yml' if st == "amazon" else 'install_docker_engine.yml' }}"
-  
+  include_tasks: install_docker_engine.yml
+  when: ansible_distribution | lower != 'amazon'
+
 # Post installation steps for Linux
 
 - name: Manage Docker as a non-root user
@@ -30,6 +29,6 @@
 - name: Ensure handlers are notified to avoid firewall conflicts
   meta: flush_handlers
 
-- name: Install Docker SDK for Python
-  include_tasks: install_sdk_for_python.yml
-  when: docker_pip_packages is defined
+  #- name: Install Docker SDK for Python
+  #  include_tasks: install_sdk_for_python.yml
+  #  when: docker_pip_packages is defined

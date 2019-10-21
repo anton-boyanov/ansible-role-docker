@@ -22,7 +22,7 @@ docker_pip_packages:
 
 # List of users to be added to the docker group
 docker_users:
-  - "{{ lookup('env', 'USER') }}"
+  - "ansible"
 
 # Flag to configure Docker to start on boot
 docker_start_on_boot: true

@@ -20,3 +20,4 @@ docker_dependencies:
 docker_gpg_key: "https://download.docker.com/linux/{{ ansible_distribution | lower }}/gpg"
 docker_repository: "https://download.docker.com/linux/{{ ansible_distribution | lower }}/\
   docker-{{ docker_edition }}.repo"
+
