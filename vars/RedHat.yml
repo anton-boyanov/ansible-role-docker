@@ -17,7 +17,10 @@ docker_dependencies:
   - device-mapper-persistent-data
   - lvm2
 
+docker_gpg_key_RHEL8: "https://download.docker.com/linux/centos/gpg"
+when: ansible_distribution | lower == 'redhat'
+docker_repository_RHEL8: "https://download.docker.com/linux/centos/7/x86_64/stable/Packages/docker-ce-18.06.3.ce-3.el7.x86_64.rpm"
+when: ansible_distribution_version == '8.0'
 docker_gpg_key: "https://download.docker.com/linux/{{ ansible_distribution | lower }}/gpg"
 docker_repository: "https://download.docker.com/linux/{{ ansible_distribution | lower }}/\
-  docker-{{ docker_edition }}.repo"
-
+                      docker-{{ docker_edition }}.repo"

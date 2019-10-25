@@ -2,8 +2,14 @@
 
 - name: Set up the repository
   include_tasks: "{{ ansible_os_family }}/setup_repository.yml"
+  when: ansible_distribution_version != '8.0'
+
+- name: Set up RHEL 8.0 repository
+  include_tasks: "{{ ansible_os_family }}/setup_repository_RHEL8.yml"
+  when: ansible_distribution_version == '8.0'  
 
 - name: Install Docker {{ docker_edition | upper }}
   package:
     name: "{{ docker_packages }}"
     state: "{{ docker_state }}"
+  when: ansible_distribution_version != '8.0'
